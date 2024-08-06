@@ -1,3 +1,10 @@
+resource "aws_vpc" "main" {
+ cidr_block = "10.0.0.0/16"
+ tags = {
+   Name = "terraform-vpc-${terraform.workspace}"
+ }
+}
+
 resource "aws_subnet" "public_subnets" {
  count             = length(var.public_subnet_cidrs)
  vpc_id            = aws_vpc.main.id
@@ -5,7 +12,7 @@ resource "aws_subnet" "public_subnets" {
  availability_zone = element(var.azs, count.index)
  
  tags = {
-   Name = "Public Subnet ${count.index + 1}"
+   Name = "terraform-public-subnet-${terraform.workspace}-${count.index + 1}"
  }
 }
  
@@ -16,6 +23,6 @@ resource "aws_subnet" "private_subnets" {
  availability_zone = element(var.azs, count.index)
  
  tags = {
-   Name = "Private Subnet ${count.index + 1}"
+   Name = "terraform-private-subnet-${terraform.workspace}-${count.index + 1}"
  }
 }
