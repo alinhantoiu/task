@@ -3,10 +3,18 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, World!")
+	// Read environment variables
+	username := os.Getenv("USERNAME")
+	password := os.Getenv("PASSWORD")
+	
+	// Print to HTTP response
+	fmt.Fprintf(w, "Hello, World!\n")
+	fmt.Fprintf(w, "Username: %s\n", username)
+	fmt.Fprintf(w, "Password: %s\n", password)
 }
 
 func main() {
