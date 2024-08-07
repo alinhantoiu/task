@@ -1,4 +1,4 @@
-name: Build Docker Image
+name: Build and Deploy
 
 on:
   push:
@@ -33,3 +33,24 @@ jobs:
         file: ./app/Dockerfile
         push: true
         tags: ghcr.io/${{ github.repository_owner }}/my-app:latest
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # - name: Set up Kubernetes
+    #   run: |
+    #     mkdir -p ~/.kube
+    #     echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+
+    - name: Install Helm
+      run: |
+        curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+    - name: Deploy with Helm
+      run: |
+        helm template helm/charts/hello-world
