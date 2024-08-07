@@ -8,8 +8,9 @@ module "sg" {
 }
 
 module "ec2" {
-  source         = "./modules/ec2"
-  ami_id         = var.ami_id
-  instance_type  = var.instance_type
-  subnet_id      = module.vpc.subnet_id
+  source                     = "./modules/ec2"
+  ami_id                     = var.ami_id
+  instance_type              = var.instance_type
+  subnet_id                  = element(module.vpc.public_subnet_id, 0)
+  security_group_id          = module.sg.sg_id
 }
