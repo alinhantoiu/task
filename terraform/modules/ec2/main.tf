@@ -28,3 +28,8 @@ resource "aws_instance" "server" {
     Name = "terraform-ec2-${terraform.workspace}"
   }
 }
+
+resource "aws_eip" "lb" {
+  instance = aws_instance.server.id
+  domain   = "vpc"
+}

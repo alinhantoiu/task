@@ -27,6 +27,16 @@ resource "aws_security_group_rule" "allow_ssh" {
  security_group_id = aws_security_group.sg_tf.id
 }
 
+resource "aws_security_group_rule" "allow_k3s_api" {
+ type              = "ingress"
+ description       = "TCP"
+ from_port         = 6443
+ to_port           = 6443
+ protocol          = "tcp"
+ cidr_blocks       = ["0.0.0.0/0"]
+ security_group_id = aws_security_group.sg_tf.id
+}
+
 resource "aws_security_group_rule" "allow_http_outbound" {
  type              = "egress"
  description       = "HTTP"
