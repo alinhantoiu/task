@@ -1,0 +1,9 @@
+name: build
+run-name: build
+on: [push]
+jobs:
+  ddockerBuild:
+    runs-on: ubuntu-latest
+    steps:
+      - cd app
+      - docker build -t test:latest .
