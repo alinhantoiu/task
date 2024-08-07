@@ -34,7 +34,6 @@ jobs:
         push: true
         tags: ghcr.io/${{ github.repository_owner }}/my-app:latest
 
-jobs:
   deploy:
     runs-on: ubuntu-latest
 
