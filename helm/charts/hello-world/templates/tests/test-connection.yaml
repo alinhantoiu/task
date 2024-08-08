@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
     - name: curl
-      image: busybox
-      command: ['curl']
+      image: curlimages/curl
+      command: ['curl', '-S']
       args: ['{{ include "hello-world.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never
