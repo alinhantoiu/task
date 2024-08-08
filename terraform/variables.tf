@@ -9,8 +9,3 @@ variable "instance_type" {
   type        = string
   default     = "t2.micro"
 }
-
-#variable "security_group_id" {
-#  description = "The ID of the security group to associate with the instance"
-#  type        = string
-#}

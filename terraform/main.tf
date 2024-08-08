@@ -14,3 +14,8 @@ module "ec2" {
   subnet_id                  = element(module.vpc.public_subnet_id, 0)
   security_group_id          = module.sg.sg_id
 }
+
+module "helm" {
+  source = "./modules/helm"
+  depends_on = [module.ec2]
+}

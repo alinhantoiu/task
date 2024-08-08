@@ -110,5 +110,5 @@ affinity: {}
 secret:
   enabled: true
   data:
-    username:
-    password:
+    username: replace
+    password: replace
