@@ -19,3 +19,8 @@ variable "security_group_id" {
   description = "The ID of the security group to associate with the instance"
   type        = string
 }
+
+variable "key_name" {
+  description = "Name of the SSH key"
+  default = "ubuntu"
+}
