@@ -8,8 +8,8 @@ metadata:
     "helm.sh/hook": test
 spec:
   containers:
-    - name: wget
+    - name: curl
       image: busybox
-      command: ['wget']
+      command: ['curl']
       args: ['{{ include "hello-world.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never
