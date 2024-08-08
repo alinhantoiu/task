@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: docker pull ghcr.io/alinhantoiu/app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -110,5 +110,5 @@ affinity: {}
 secret:
   enabled: true
   data:
-    username: test
-    password: test
+    username:
+    password:
