@@ -52,4 +52,4 @@ jobs:
 
     - name: Deploy with Helm
       run: |
-        helm upgrade -i --set image.tag=${{ github.ref_name }} --set secret.data.username=${{ secrets.USERNAME }} --set secret.data.password=${{ secrets.PASSWORD }} helm/charts/hello-world
+        helm upgrade -i --set image.tag=${{ github.ref_name }} --set secret.data.username=${{ secrets.USERNAME }} --set secret.data.password=${{ secrets.PASSWORD }} app helm/charts/hello-world
