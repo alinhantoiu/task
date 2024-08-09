@@ -60,6 +60,11 @@ resource "aws_instance" "server" {
 }
 
 resource "null_resource" "scp" {
+
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+  
   provisioner "local-exec" {
     command = "sleep 60 && scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ${local_file.private_key.filename} ubuntu@${aws_instance.server.public_ip}:/tmp/k3s.yaml ./k3s.yaml"
   }

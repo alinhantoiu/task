@@ -7,4 +7,9 @@ resource "helm_release" "app" {
     name  = "image.tag"
     value = "main"
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
+  
 }
