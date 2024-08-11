@@ -17,5 +17,5 @@ module "ec2" {
 
 module "helm" {
   source = "./modules/helm"
-  depends_on = [module.ec2]
+  depends_on = [module.ec2, module.sg, module.vpc]
 }
