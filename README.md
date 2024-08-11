@@ -69,10 +69,46 @@ This folder contains the GitHub Actions workflow configuration that automates th
         The kubeconfig created by terraform and saved on local must be added as a repository secret under key KUBECONFIG (Settings->Secrets and Variables->Actions->Repository Secrets)
 
 
+**PREREQUISITES**
 
+1) Install terraform
 
+   https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli#install-terraform
 
+2) Install aws cli
 
+   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+   unzip awscliv2.zip
+   sudo ./aws/install
 
+3) Create an IAM User
+
+   Log in to the AWS Management Console.
+   Go to IAM > Users > Add users.
+   Name the user (e.g., terraform-user) and enable Programmatic access to generate an Access Key ID and Secret Access Key.
+   Attach the AdministratorAccess policy for full access and create an Access Key
+
+4) Configure 
+
+   Use the AWS CLI by running aws configure and entering the credentials
+   aws configure
+
+**Provision Infrastructure**
+
+1) Go into terraform folder
+   
+   cd terraform
+   terraform init
+   terraform plan
+
+2) Run terraform apply command
+ 
+   terraform apply -auto-approve
+
+**Deploy From The Pipeline**
+
+After running **terraform apply**, a kubeconfig file will be added on your local in the terraform folder, this file will be used to authenticate github actions with the k3s cluster
+
+Create a secret called KUBECONFIG in Settings->Secrets and Variables->Actions->Repository Secrets and add the content of the k3s.yaml file to this secret.
 
 
