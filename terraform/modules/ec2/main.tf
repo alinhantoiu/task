@@ -39,7 +39,7 @@ resource "aws_instance" "server" {
                 systemctl stop ufw 
 
               # Install k3s
-                curl -sfL https://get.k3s.io | PUBLIC_IP=$(curl http://checkip.amazonaws.com) INSTALL_K3S_EXEC="--tls-san $PUBLIC_IP" sh -s -
+                curl -sfL https://get.k3s.io | PUBLIC_IP=$(curl http://checkip.amazonaws.com) INSTALL_K3S_EXEC="--tls-san $PUBLIC_IP" sh -s - --disable traefik
 
               # Copy k3s.yaml kube config to /tmp
                 sudo cp /etc/rancher/k3s/k3s.yaml /tmp/k3s.yaml
