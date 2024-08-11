@@ -113,3 +113,4 @@ Create a secret called KUBECONFIG in **Settings->Secrets and Variables->Actions-
 
 The CI/CD pipeline can be manually triggerd or by a commit to main branch. In order to trigger a manual workflow go to **Actions** click on **Build and Deploy** then **Run Workflow**
 
+In the **integration** job you can see the application logs and the sensitive data injected from Github Secrets
