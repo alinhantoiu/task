@@ -13,11 +13,8 @@ spec:
       {{- include "hello-world.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
         rollme: {{ randAlphaNum 5 | quote }}
-      {{- end }}
       labels:
         {{- include "hello-world.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
