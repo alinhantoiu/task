@@ -57,3 +57,22 @@ This folder contains the Terraform configuration files used to provision infrast
         After provisioning, Terraform also handles the installation of K3s on the EC2 instance.
         Once K3s is installed, Terraform deploys the Helm chart to the K3s cluster, effectively deploying the application.
         The kubernetes config file is downloaded on local in order to access kubernetes from your local.
+
+**4. .github/workflows/ - CI/CD with GitHub Actions**
+
+**Purpose: <br>**
+This folder contains the GitHub Actions workflow configuration that automates the CI/CD pipeline. The pipeline builds the Docker image, deploys the Helm chart to the K3s cluster, and runs integration tests.
+
+        Key Points:
+        
+        The workflow triggers on push to the main branch.
+        The kubeconfig created by terraform and saved on local must be added as a repository secret under key KUBECONFIG (Settings->Secrets and Variables->Actions->Repository Secrets)
+
+
+
+
+
+
+
+
+
