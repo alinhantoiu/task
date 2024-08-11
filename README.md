@@ -77,29 +77,29 @@ This folder contains the GitHub Actions workflow configuration that automates th
 
 2) Install aws cli
 
-   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-   unzip awscliv2.zip
-   sudo ./aws/install
+   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"<br>
+   unzip awscliv2.zip<br>
+   sudo ./aws/install<br>
 
 3) Create an IAM User
 
-   Log in to the AWS Management Console.
-   Go to IAM > Users > Add users.
-   Name the user (e.g., terraform-user) and enable Programmatic access to generate an Access Key ID and Secret Access Key.
-   Attach the AdministratorAccess policy for full access and create an Access Key
+   Log in to the AWS Management Console.<br>
+   Go to IAM > Users > Add users.<br>
+   Name the user (e.g., terraform-user) and enable Programmatic access to generate an Access Key ID and Secret Access Key.<br>
+   Attach the AdministratorAccess policy for full access and create an Access Key<br>
 
 4) Configure 
 
-   Use the AWS CLI by running aws configure and entering the credentials
-   aws configure
+   Use the AWS CLI by running aws configure and entering the credentials<br>
+   aws configure<br>
 
 **Provision Infrastructure**
 
 1) Go into terraform folder
    
-   cd terraform
-   terraform init
-   terraform plan
+   cd terraform<br>
+   terraform init<br>
+   terraform plan<br>
 
 2) Run terraform apply command
  
@@ -109,6 +109,7 @@ This folder contains the GitHub Actions workflow configuration that automates th
 
 After running **terraform apply**, a kubeconfig file will be added on your local in the terraform folder, this file will be used to authenticate github actions with the k3s cluster
 
-Create a secret called KUBECONFIG in Settings->Secrets and Variables->Actions->Repository Secrets and add the content of the k3s.yaml file to this secret.
+Create a secret called KUBECONFIG in **Settings->Secrets and Variables->Actions->Repository Secrets** and add the content of the k3s.yaml file to this secret.
 
+The CI/CD pipeline can be manually triggerd or by a commit to main branch. In order to trigger a manual workflow go to **Actions** click on **Build and Deploy** then **Run Workflow**
 
