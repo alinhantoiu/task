@@ -8,9 +8,9 @@ RUN mkdir $APP_HOME
 
 RUN addgroup -g 101 -S $APP_GROUP && adduser -u 100 -S $APP_USER -G $APP_GROUP
 
-WORKDIR /app
+COPY go.mod main.go /app/
 
-COPY go.mod main.go .
+WORKDIR /app
 
 RUN go build -o app .
 
