@@ -17,6 +17,13 @@ spec:
       containers:
       - name: app
         image: # Replace with your app image
+        # resources:
+        #   requests:
+        #     cpu: 50m
+        #     memory: 64MB
+        #   limits: 
+        #     cpu: 100m
+        #     memory: 128MB
         ports:
         - containerPort: 80
         # env:
@@ -30,11 +37,3 @@ spec:
         #     secretKeyRef:
         #       name: secret-app
         #       key: password
-        # resources:
-        #   requests:
-        #     cpu: 50m
-        #     memory: 64MB
-        #   limits: 
-        #     cpu: 100m
-        #     memory: 128MB
-            
