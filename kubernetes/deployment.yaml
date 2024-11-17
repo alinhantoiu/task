@@ -30,3 +30,11 @@ spec:
         #     secretKeyRef:
         #       name: secret-app
         #       key: password
+        # resources:
+        #   requests:
+        #     cpu: 50m
+        #     memory: 64MB
+        #   limits: 
+        #     cpu: 100m
+        #     memory: 128MB
+            
