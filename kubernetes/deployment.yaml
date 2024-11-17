@@ -19,3 +19,14 @@ spec:
         image: # Replace with your app image
         ports:
         - containerPort: 80
+        # env:
+        # - name: USERNAME
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: secret-app
+        #       key: username
+        # - name: PASSWORD
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: secret-app
+        #       key: password
