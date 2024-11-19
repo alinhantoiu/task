@@ -8,7 +8,7 @@ RUN mkdir $APP_HOME
 
 RUN addgroup -g 101 -S $APP_GROUP && adduser -u 100 -S $APP_USER -G $APP_GROUP
 
-COPY go.mod main.go /app/
+COPY go.mod main.go stress_test.sh /app/
 
 WORKDIR /app
 

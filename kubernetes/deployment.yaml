@@ -16,24 +16,27 @@ spec:
     spec:
       containers:
       - name: app
-        image: # Replace with your app image
-        # resources:
-        #   requests:
-        #     cpu: 50m
-        #     memory: 64Mi
-        #   limits: 
-        #     cpu: 100m
-        #     memory: 128Mi
+        image: ghcr.io/alinhantoiu/app:latest
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits: 
+            cpu: 100m
+            memory: 128Mi
         ports:
-        - containerPort: 80
-        # env:
-        # - name: USERNAME
-        #   valueFrom:
-        #     secretKeyRef:
-        #       name: secret-app
-        #       key: username
-        # - name: PASSWORD
-        #   valueFrom:
-        #     secretKeyRef:
-        #       name: secret-app
-        #       key: password
+        - containerPort: 8080
+        env:
+        - name: USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: secret-app
+              optional: true
+              key: username
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: secret-app
+              optional: true
+              key: password
+
