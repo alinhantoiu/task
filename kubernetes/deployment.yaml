@@ -47,3 +47,4 @@ spec:
       - name: config
         configMap:
           name: app-configmap
+          optional: true
