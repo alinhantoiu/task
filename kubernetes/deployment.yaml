@@ -17,6 +17,10 @@ spec:
       containers:
       - name: app
         image: ghcr.io/alinhantoiu/app:latest
+        volumeMounts:
+        - name: config
+          mountPath: /app/app.conf
+          subPath: app.conf
         resources:
           requests:
             cpu: 50m
@@ -39,4 +43,7 @@ spec:
               name: secret-app
               optional: true
               key: password
-
+      volumes:
+      - name: config
+        configMap:
+          name: app-configmap
